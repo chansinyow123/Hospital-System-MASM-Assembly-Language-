@@ -92,8 +92,12 @@ LoginPassword PROC C,
 				inc ebx									; increment length
 			.ENDIF
 
-			;// If Password Exceed String Length
-			.IF (ebx == passwordSize)
+		
+		;// If input is Enter KEY
+		.UNTIL (al == 13)
+
+		;// If Password Exceed String Length
+			.IF (ebx >= passwordSize)
 				call Crlf
 				call Crlf
 				;Call The Login Error from extraMacros.inc
@@ -111,8 +115,6 @@ LoginPassword PROC C,
 
 				jmp input								; and then jump back to input password
 			.ENDIF
-		;// If input is Enter KEY
-		.UNTIL (al == 13)
 
 		;// If the Password is empty, jmp back to password input
 		.IF (ebx == 0)
