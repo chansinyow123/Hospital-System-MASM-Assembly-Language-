@@ -163,21 +163,6 @@ HospitalMenu PROC C,
 		mWrite <"                    -----------------------------------------------------------              ", 0dh,0ah>
 		mWrite <"                             Select Option: ">
 
-		;mWrite  <"Welcome ">
-		;mov edx, staffName
-		;call WriteString
-		;mWrite  <"!", 0dh, 0ah>
-		;mWrite <"What would you like to do?", 0dh, 0ah>
-		;mWrite <"--------------------------------------------", 0dh, 0ah>
-		;mWrite  <"1) Add Hospitalized History", 0dh, 0ah>
-		;mWrite  <"2) List History", 0dh, 0ah>
-		;mWrite  <"3) Add appointment", 0dh, 0ah>
-		;mWrite  <"4) List Appointment", 0dh, 0ah>
-		;mWrite  <"5) Log Out", 0dh, 0ah>
-		;mWrite  <"0) Exit", 0dh, 0ah>
-		;mWrite <"--------------------------------------------", 0dh, 0ah>
-		;mWrite  <"Select Option: ">
-
 		call ReadInt
 		.IF OVERFLOW? || (eax < 0) || (eax > 5)
 			call Crlf

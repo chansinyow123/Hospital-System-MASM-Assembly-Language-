@@ -12,7 +12,7 @@ InputYear PROC C,
 	currentYear:DWORD
 
 	input:
-		mWrite <"                 Appointment Year (">
+		mWrite <"                  Appointment Year (">
 		mov eax, currentYear
 		call WriteDec
 		mWrite <"-">

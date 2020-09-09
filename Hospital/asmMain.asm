@@ -325,16 +325,11 @@ hospitalInterface:
 
 			;//calculate the price and total price
 			fld pricePerDay															; store the RM 100(price per day) inside ST(0)
-			;call ShowFPUStack			
 			fimul hospitalDay														; multiply ST(0) with hospital day inside ST(0)
-			;call ShowFPUStack
 			fst price																; store the multiplied value into price
-			;call ShowFPUStack
 			fmul tax																; multiply ST(0) (price) with 0.06 tax
 			fst taxPrice															; store the tax price into taxPrice
-			;call ShowFPUStack
 			fadd price																; add the tax price with price calculated before inside ST(0)
-			;call ShowFPUStack
 			fst totalPrice															; store the total price into totalPrice
 
 			;Display price per day
@@ -372,10 +367,8 @@ hospitalInterface:
 
 		proceed:
 			fsubr customerPay														; substract the total price with customer pay
-			;call ShowFPUStack
 			fstp customerChange														; store the substract price into customer change
 
-			;call ShowFPUStack\
 			mWrite <"                          Customer Change:  RM ">
 			INVOKE displayFloat, ADDR customerChange								; Display customer changed from C++
 
@@ -392,6 +385,7 @@ hospitalInterface:
 			call Crlf
 			mWrite <"                  Next Patient? (Yes=Y/y): ">
 			call ReadChar															; Got Next Patient or not?
+			call WriteChar
 
 			call Clrscr
 			.IF (al == 059h || al == 079h)											; IF Yes, Input Again, else jump back to hospital menu

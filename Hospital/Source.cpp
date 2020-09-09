@@ -314,7 +314,7 @@ void convertTime(int hour, int minute, char formatTime[], int timeSize) {
 
 	string hourString = to_string(hour);
 	string minuteString = to_string(minute);
-	string leadingZeroHourString = string(2 - hourString.length(), '0') + hourString;
+	string leadingZeroHourString = string(2 - hourString.length(), '0') + hourString;			// print leading zero
 	string leadingZeroMinuteString = string(2 - minuteString.length(), '0') + minuteString;
 
 
